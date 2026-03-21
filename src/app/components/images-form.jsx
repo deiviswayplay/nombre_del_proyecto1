@@ -5,7 +5,9 @@ import { createClient } from "../utls/supabase/client";
 
 export default function ImagesForm() {
   const [file, setFile] = useState(null);
+  //el estado file se utiliza para almacenar el archivo 
 
+  // Función para subir la imagen a Supabase Storage
   const handleUpload = async () => {
     try {
       if (!file) {
@@ -15,19 +17,38 @@ export default function ImagesForm() {
 
       const supabase = createClient();
 
-      const fileName = `${Date.now()}-${file.name}`;
+      // Obtener el usuario logueado 
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
 
+      if (userError) {
+        throw userError;
+      }
+
+      if (!user) {
+        alert("Debes iniciar sesión para subir una imagen");
+        return;
+      }
+
+      // Crear ruta única usando el ID del usuario + timestamp + nombre
+      const filePath = `${user.id}/${Date.now()}-${file.name}`;
+
+      // Subir la imagen a Supabase Storage
       const { data, error } = await supabase.storage
         .from("images")
-        .upload(fileName, file);
+        .upload(filePath, file);
 
-      if (error) throw error;
+      if (error) {
+        throw error;
+      }
 
       alert("Imagen subida correctamente");
-      console.log(data);
+      console.log("Datos de la subida:", data);
     } catch (error) {
-      console.error(error);
-      alert(error.message);
+      console.error("Error al subir la imagen:", error);
+      alert(error.message || "Error desconocido al subir la imagen");
     }
   };
 
@@ -39,12 +60,10 @@ export default function ImagesForm() {
       }}
       className="flex flex-col"
     >
-      <input
-        type="file"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
+      <input type="file" onChange={(e) => setFile(e.target.files[0])} />
 
-      <button>Subir</button>
+      <button type="submit">Subir</button>
     </form>
   );
 }
+
