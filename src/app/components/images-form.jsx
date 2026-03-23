@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createClient } from "../utls/supabase/client";
 
+
 export default function ImagesForm() {
   const [file, setFile] = useState(null);
   //el estado file se utiliza para almacenar el archivo 

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "../utls/supabase/client";
+import Styles from "./login-form.module.css";
 
 export default function  LoginForm() {
     const [user, setUser] = useState({
@@ -25,13 +26,17 @@ export default function  LoginForm() {
         }
     };
     return (
-        <form onSubmit={(e) => {
+        
+       <div className={Styles.background}>
+        <form className={Styles.form} onSubmit={(e) => {
             e.preventDefault();
             login();
         }}
-        className="flex flex-col"
+       
         >
-
+        <div className={Styles.container}>
+            <h2>Login</h2>
+        
             <input 
                 type="text" 
                 placeholder="Ingresa tu email" 
@@ -45,7 +50,11 @@ export default function  LoginForm() {
                 onChange={(e) => setUser({...user, password: e.target.value})}
             />
             <button>Iniciar sesión</button>
+            </div>
         </form>
+        </div>
+         
+        
     )
 
     

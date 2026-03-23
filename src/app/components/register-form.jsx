@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { createClient } from "../utls/supabase/client";
+import Styles from "./registre-form.module.css";
 
 export default function RegisterForm() {
     const [user, setUser] = useState({
@@ -26,13 +27,16 @@ export default function RegisterForm() {
     }
     
     return (
-        <form onSubmit={(e) => {
+        <div className="abuelo">
+        <div className={Styles.background}>
+        <form className={Styles.form} onSubmit={(e) => {
             e.preventDefault();
             registar();
         }}
-        className="flex flex-col"
+     
         >
-
+            <div className={Styles.container}>
+            <h2>Registro</h2>
             <input 
                 type="text" 
                 placeholder="Ingresa tu email" 
@@ -46,6 +50,7 @@ export default function RegisterForm() {
                 onChange={(e) => setUser({...user, password: e.target.value})}
             />
             <button>Registrar</button>
-        </form>
+            </div>
+        </form> </div></div> 
     )
 }

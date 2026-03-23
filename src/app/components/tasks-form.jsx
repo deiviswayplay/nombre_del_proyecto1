@@ -30,7 +30,7 @@ const handleSubmit = async (e) => {
   return (
     <div className={Styles.container}>
       <h2>Registrar nueva tarea</h2>
-    <form className={Styles.form} >
+    <form className={Styles.form} onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Titulo de la tarea"

@@ -1,0 +1,60 @@
+.background {
+   background-image: url("/fondo.png");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.abuelo {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.container h2 {
+    margin-bottom: 2px;
+    font-weight: bolder;
+    font-size: 2rem;
+    color:#0070f3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.form button {
+    margin-top: 5px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form button:hover {
+    background-color: #005bb5;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.form input {
+    padding: 0.5rem;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    color: black;
+}
