@@ -1,0 +1,27 @@
+.background{
+   background-image: url("/pageprincipal.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+
+}
+.header{
+background-color: #160430;
+box-shadow: #160430 0px 2px 4px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px 20px;
+font-family: 'Poppins';
+}

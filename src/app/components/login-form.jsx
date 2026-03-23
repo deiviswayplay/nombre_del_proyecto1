@@ -3,13 +3,15 @@
 import { useState } from "react";
 import { createClient } from "../utls/supabase/client";
 import Styles from "./login-form.module.css";
+import { useRouter } from "next/navigation";
 
 export default function  LoginForm() {
+    const router = useRouter();
     const [user, setUser] = useState({
         email: "",
         password: "",
     });
-
+   
     const login = async () => {
         try {
             const supabase = createClient();
@@ -20,6 +22,8 @@ export default function  LoginForm() {
             if (error) throw error;
             if (data) {
                 alert("Inicio de sesión exitoso");
+                router.push("/dashboard");
+
             }
         } catch (error) {
             console.error(error);

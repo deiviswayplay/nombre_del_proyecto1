@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { createClient } from "../utls/supabase/client";
 import Styles from "./registre-form.module.css";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
+    const router = useRouter();
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -20,6 +22,7 @@ export default function RegisterForm() {
         if (error) throw error;
         if (data) {
             alert ("te registraste correctamente");
+                router.push("/login");
         }
     } catch (error) {
         console.error(error);
