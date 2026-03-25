@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import { createClient } from "../utls/supabase/client";
 import Styles from "./registre-form.module.css";
 import { useRouter } from "next/navigation";
@@ -11,6 +11,16 @@ export default function RegisterForm() {
         email: "",
         password: "",
     });
+
+    const [confirmPassword, setConfirmPassword] = useState(true);
+    // {
+    //     if (user.password !== confirmPassword) {
+    //         alert("Las contraseñas no coinciden");
+    //         return;
+    //     }
+     
+        
+    // }
 
     const registar = async () => {
     try {
@@ -52,7 +62,16 @@ export default function RegisterForm() {
                 value={user.password}
                 onChange={(e) => setUser({...user, password: e.target.value})}
             />
+            <input 
+                type="password" 
+                placeholder="Confirma tu contraseña" 
+                value={user.confirmPassword}
+                onChange={(e) => setUser({...user, confirmPassword: e.target.value})}
+            />
             <button>Registrar</button>
+            <p>¿Ya tienes cuenta? <button className={Styles.buttonn} type="button" onClick={() => router.push("/login")}> 
+              Iniciar sesión
+            </button></p>
             </div>
         </form> </div></div> 
     )

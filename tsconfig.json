@@ -30,7 +30,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/utls/supabase/server.js"  ],
   "exclude": [
     "node_modules"
   ]

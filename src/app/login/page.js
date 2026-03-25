@@ -7,7 +7,7 @@
     }
     
     return (
-        <div>
+        <div> 
             <LoginForm />
         </div>
     )

@@ -10,7 +10,7 @@
   max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -39,13 +39,13 @@
 .form input {
     padding: 0.5rem;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1.5px solid #ccc;
     border-radius: 4px;
     margin-top: 5px;
-    color: black;
+    color: #ccc;
 }
 .form button {
-    margin-top: 5px;
+    margin-top: 10px;
     padding: 0.5rem;
     font-size: 1rem;
     background-color: #0070f3;
@@ -56,4 +56,10 @@
 }
 .form button:hover {
     background-color: #005bb5;
+}
+.container .buttonn {
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
 }
