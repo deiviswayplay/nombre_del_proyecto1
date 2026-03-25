@@ -10,6 +10,7 @@ export default function RegisterForm() {
     const [user, setUser] = useState({
         email: "",
         password: "",
+        confirmPassword: "",
     });
 
     const [confirmPassword, setConfirmPassword] = useState(true);
@@ -44,6 +45,10 @@ export default function RegisterForm() {
         <div className={Styles.background}>
         <form className={Styles.form} onSubmit={(e) => {
             e.preventDefault();
+            if (user.password !== user.confirmPassword) {
+                alert("Las contraseñas no coinciden");
+                return;
+            }
             registar();
         }}
      
