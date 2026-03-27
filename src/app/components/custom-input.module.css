@@ -1,0 +1,12 @@
+.container {
+  border: 1px solid #e5e7eb; /* border */
+  border-radius: 6px;        /* rounded-md */
+  padding: 0.5rem;           /* p-2 */
+  display: flex;             
+  align-items: center;  
+}
+.input {
+ border: none;              /* border-none */
+  outline: none;             /* focus:outline-none */
+  width: 90%; 
+}
