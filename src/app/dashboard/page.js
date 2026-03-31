@@ -8,7 +8,8 @@ export default function Page() {
     return (
         <div className={Styles.background}>
             <TaskForm/>
-            <TaskContainer />
+            <TaskContainer
+            />
 
         </div>
     );
